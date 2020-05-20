@@ -1,5 +1,4 @@
-# final-project-graphics
-***Final Project Graphics***
+# Final Project Graphics
 
 **Stage 0: Proposal**
 
