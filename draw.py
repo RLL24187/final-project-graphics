@@ -143,6 +143,30 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons, x, y1, z, x1, y1, z1, x1, y1, z)
     add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
 
+def add_pyramid( polygons, x, y, z, width, height, depth ):
+    w = width/2
+    d = depth/2
+    h = y - height
+    x1 = x + width
+    y1 = y - height
+    z1 = z - depth
+
+    #front
+    add_polygon(polygons, x, y, z, x - w, h, z + d, x + w, h, z + d)
+
+    #back
+    add_polygon(polygons, x, y, z, x + w, h, z - d, x - w, h, z - d)
+
+    #left side
+    add_polygon(polygons, x, y, z, x - w, h, z - d, x - w, h, z + d)
+
+    #right side
+    add_polygon(polygons, x, y, z, x + w, h, z + d, x + w, h, z - d)
+
+    #bottom
+    add_polygon(polygons, x - w, h, z - d, x - w, h, z + d, x + w, h, z + d)
+    add_polygon(polygons, x - w, h, z - d, x + w, h, z + d, x + w, h, z - d)
+
 def add_sphere(polygons, cx, cy, cz, r, step ):
     points = generate_sphere(cx, cy, cz, r, step)
 
