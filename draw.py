@@ -164,6 +164,29 @@ def add_pyramid( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons, x + w, h, z + d, x - w, h, z + d, x - w, h, z - d)
     add_polygon(polygons, x + w, h, z - d, x + w, h, z + d, x - w, h, z - d)
 
+def add_wedge( polygons, x, y, z, width, height, depth ):
+    x1 = x + width
+    y1 = y + height
+    z1 = z - depth
+
+    #front
+    add_polygon(polygons, x, y, z, x1, y, z, x1, y1, z)
+
+    #back
+    add_polygon(polygons, x, y, z1, x1, y1, z1, x1, y, z1)
+
+    #right side
+    add_polygon(polygons, x1, y1, z, x1, y, z, x1, y, z1)
+    add_polygon(polygons, x1, y1, z, x1, y, z1, x1, y1, z1)
+
+    #top
+    add_polygon(polygons, x, y, z1, x, y, z, x1, y1, z)
+    add_polygon(polygons, x, y, z1, x1, y1, z, x1, y1, z1)
+
+    #bottom
+    add_polygon(polygons, x, y, z, x, y, z1, x1, y, z1)
+    add_polygon(polygons, x, y, z, x1, y, z1, x1, y, z)
+
 def add_sphere(polygons, cx, cy, cz, r, step ):
     points = generate_sphere(cx, cy, cz, r, step)
 
