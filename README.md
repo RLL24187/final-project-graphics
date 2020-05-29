@@ -12,11 +12,11 @@
 * Modified Existing MDL Commands/Features to Implement
   * Adding New Primitive Shapes:
     * Wedge
-	* Starting Point: left-bottom-front vertex (x, y, z)
-	* Given Information: x, y, z, width, height, depth
+      * Starting Point: left-bottom-front vertex (x, y, z)
+      * Given Information: x, y, z, width, height, depth
     * Square pyramid 
-	* Starting Point: top vertex (x, y, z)
-	* Given Information: x, y, z, width, height, depth
+      * Starting Point: top vertex (x, y, z)
+      * Given Information: x, y, z, width, height, depth
     * Cylinder
   * Changing Behavior of Vary
     * Adding a parameter to calculate change over time using functions including:
