@@ -150,12 +150,13 @@ def generate_cylinder(cx, cy, cz, radius, height, step):
     circ_start = 0
     circ_stop = step
 
-    dy = height / float(step)
+    dy = height / float(step - 1)
 
     points.append([cx, cy, cz])
-    print(points[-1])
-
+    # print(points[-1])
+    i = 1
     for layer in range(layer_start, layer_stop):
+        # print(i)
         for circle in range(circ_start, circ_stop):
             circ = circle/float(step)
 
@@ -165,12 +166,13 @@ def generate_cylinder(cx, cy, cz, radius, height, step):
 
             points.append([x, y, z])
             # print(points[-1])
+        i += 1
     points.append([cx, cy + height, cz])
-    print(points[-1])
+    # print(points[-1])
     return points
 
 def add_cylinder( polygons, cx, cy, cz, radius, height, step):
-    step = 8
+    # step = 8
     points = generate_cylinder(cx, cy, cz, radius, height, step)
 
     # lat_start = 0
@@ -193,7 +195,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                     points[i + 2][0],
                     points[i + 2][1],
                     points[i + 2][2])
-        print("Added polygon : 0, "+ str(i + 1) + ", " + str(i + 2))
+        # print("Added polygon : 0, "+ str(i + 1) + ", " + str(i + 2))
         i += 1
     add_polygon(polygons,
                 bottom_center[0],
@@ -205,7 +207,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                 points[1][0],
                 points[1][1],
                 points[1][2])
-    print("Added polygon : 0, "+ str(i + 1) + ", 1")
+    # print("Added polygon : 0, "+ str(i + 1) + ", 1")
     # print(step)
     # print(len(points))
 
@@ -246,31 +248,32 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
     #top circle
     i = 0
     offset = step * (step - 1)
-    print(offset)
+    # print(offset)
     while i < step - 1:
         add_polygon(polygons,
-                    top_center[0],
-                    top_center[1],
-                    top_center[2],
                     points[offset + i + 1][0],
                     points[offset + i + 1][1],
                     points[offset + i + 1][2],
+                    top_center[0],
+                    top_center[1],
+                    top_center[2],
                     points[offset + i + 2][0],
                     points[offset + i + 2][1],
                     points[offset + i + 2][2])
-        print("Added polygon : " + str(len(points) - 1) + ", " + str(offset + i + 1) + ", " + str(offset + i + 2))
+        # print("Added polygon : " + str(offset + i + 1) + ", " + str(len(points) - 1) + ", " + str(offset + i + 2))
         i += 1
     add_polygon(polygons,
-                top_center[0],
-                top_center[1],
-                top_center[2],
                 points[offset + i + 1][0],
                 points[offset + i + 1][1],
                 points[offset + i + 1][2],
+                top_center[0],
+                top_center[1],
+                top_center[2],
                 points[offset + 1][0],
                 points[offset + 1][1],
                 points[offset + 1][2])
-    print("Added polygon : " + str(len(points) - 1) + ", "+ str(offset + i + 1) + ", " + str(offset + 1))
+    # print("Added polygon : " + str(offset + i + 1) + ", " + str(len(points) - 1) + ", " + str(offset + 1))
+
 def add_pyramid( polygons, x, y, z, width, height, depth ):
     w = width/2
     d = depth/2

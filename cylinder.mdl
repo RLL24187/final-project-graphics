@@ -20,7 +20,9 @@ cylinder shiny_teal 0 0 0 40 100
 pop
 push
 move 300 100 0
-rotate x 45
-cylinder dull_yellow 0 0 0 50 150
+rotate x -45
+rotate y 10
+rotate z -135
+cylinder dull_yellow 0 0 0 50 100
 display
 save cylinder.png
