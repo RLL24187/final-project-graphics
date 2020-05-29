@@ -152,7 +152,7 @@ def generate_cylinder(cx, cy, cz, radius, height, step):
 
     dy = height / float(step)
 
-    points.append(cx, cy, cz)
+    points.append([cx, cy, cz])
 
     for layer in range(layer_start, layer_stop):
         rot = layer/float(step)
@@ -164,7 +164,7 @@ def generate_cylinder(cx, cy, cz, radius, height, step):
             z = math.sin(2*math.pi * rot) * radius + cz;
 
             points.append([x, y, z])
-    points.append(cx, cy + height, cz)
+    points.append([cx, cy + height, cz])
     return points
 
 def add_cylinder( polygons, cx, cy, cz, radius, height, step):
