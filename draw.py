@@ -228,7 +228,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                         points[p1][2] )
     #top circle
     i = 0
-    offset = steps * (steps - 1)
+    offset = step * (step - 1)
     while i < step - 1:
         add_polygon(polygons,
                     top_center[0],
