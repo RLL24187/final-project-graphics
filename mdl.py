@@ -15,6 +15,7 @@ tokens = (
     "TORUS",
     "SPHERE",
     "PYRAMID",
+    "WEDGE",
     "BOX", 
     "LINE", 
     "MESH", 
@@ -55,6 +56,7 @@ reserved = {
     "torus" : "TORUS",
     "sphere" : "SPHERE",
     "pyramid" : "PYRAMID",
+    "wedge" : "WEDGE",
     "box" : "BOX",
     "line" : "LINE",
     "mesh" : "MESH",
@@ -220,6 +222,23 @@ def p_command_pyramid(p):
                | PYRAMID NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
                | PYRAMID SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
                | PYRAMID SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
+    cmd = {'op' : p[1], 'constants' : None, 'cs' : None, 'args':[]}
+    arg_start = 2
+    if isinstance(p[2], str):
+        cmd['constants'] = p[2]
+        arg_start = 3
+    if len(p) == 9 and isinstance(p[8], str):
+        cmd['cs'] = p[8]
+    if len(p) == 10 and isinstance(p[9], str):
+          cmd['cs'] = p[9]
+    cmd['args'] = p[arg_start:arg_start+6]
+    commands.append(cmd)
+
+def p_command_wedge(p):
+    """command : WEDGE NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
+               | WEDGE NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
+               | WEDGE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER
+               | WEDGE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
     cmd = {'op' : p[1], 'constants' : None, 'cs' : None, 'args':[]}
     arg_start = 2
     if isinstance(p[2], str):
