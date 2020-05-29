@@ -192,7 +192,8 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                     points[i + 2][1],
                     points[i + 2][2])
         i += 1
-
+    print(steps)
+    print(len(points))
     #side triangles
     for lat in range(lat_start, lat_stop):
         for longt in range(longt_start, longt_stop):
@@ -204,7 +205,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                 p1 = p0 + 1;
             p2 = (p1 + step) % (step * step);
             p3 = (p0 + step) % (step * step);
-
+            print("p0: " + p0 + "| p1: " + p1 + "| p2: " + p2 + "|p3: "+ p3)
             add_polygon(polygons,
                         points[p0][0],
                         points[p0][1],
