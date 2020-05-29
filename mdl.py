@@ -15,6 +15,7 @@ tokens = (
     "TORUS",
     "SPHERE",
     "CYLINDER",
+    "CONE",
     "PYRAMID",
     "WEDGE",
     "BOX",
@@ -57,6 +58,7 @@ reserved = {
     "torus" : "TORUS",
     "sphere" : "SPHERE",
     "cylinder" : "CYLINDER",
+    "cone" : "CONE",
     "pyramid" : "PYRAMID",
     "wedge" : "WEDGE",
     "box" : "BOX",
@@ -224,6 +226,23 @@ def p_command_cylinder(p):
                | CYLINDER NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
                | CYLINDER SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER
                | CYLINDER SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
+    cmd = {'op' : p[1], 'constants' : None, 'cs' : None, 'args':[]}
+    arg_start = 2
+    if isinstance(p[2], str):
+        cmd['constants'] = p[2]
+        arg_start = 3
+    if len(p) == 9 and isinstance(p[8], str):
+        cmd['cs'] = p[8]
+    if len(p) == 10 and isinstance(p[9], str):
+          cmd['cs'] = p[9]
+    cmd['args'] = p[arg_start:arg_start+6]
+    commands.append(cmd)
+
+def p_command_cone(p):
+    """command : CONE NUMBER NUMBER NUMBER NUMBER NUMBER
+               | CONE NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL
+               | CONE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER
+               | CONE SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER SYMBOL"""
     cmd = {'op' : p[1], 'constants' : None, 'cs' : None, 'args':[]}
     arg_start = 2
     if isinstance(p[2], str):
