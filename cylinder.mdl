@@ -4,5 +4,5 @@ constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
 push
 box 0 0 0 40 40 40
 move 250 250 0
-cylinder 0 0 0 50 200
+pyramid 0 0 0 50 50 50 
 save cylinder.png
