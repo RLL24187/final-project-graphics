@@ -1,11 +1,26 @@
 constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
 constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
+constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
+constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
 //BODY
+light 255 255 255 250 250 100
 push
-box 0 0 0 40 40 40
 move 250 250 0
-pyramid 0 0 0 50 50 50
-move 100 -100 0
-cylinder 0 0 0 50 100
+rotate x 15
+rotate y 15
+rotate z 15
+cylinder shiny_purple 0 0 0 20 100
+pop
+push
+move 200 200 0
+rotate x 20
+rotate y 50
+rotate z 45
+cylinder shiny_teal 0 0 0 40 100
+pop
+push
+move 300 100 0
+rotate x 45
+cylinder dull_yellow 0 0 0 50 150
 display
 save cylinder.png
