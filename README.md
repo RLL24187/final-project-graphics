@@ -29,6 +29,7 @@
 **Stage 1: Work**
 
 *Development Log*
+
 5/28/2020
 * Kayla: Wrote the code for add_wedge and add_pyramid
 
