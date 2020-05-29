@@ -205,7 +205,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                 p1 = p0 + 1;
             p2 = (p1 + step) % (step * step);
             p3 = (p0 + step) % (step * step);
-            print("p0: " + int(p0) + "| p1: " + int(p1) + "| p2: " + int(p2) + "|p3: "+ int(p3))
+            print("p0: " + str(p0) + "| p1: " + str(p1) + "| p2: " + str(p2) + "|p3: "+ str(p3))
             add_polygon(polygons,
                         points[p0][0],
                         points[p0][1],
