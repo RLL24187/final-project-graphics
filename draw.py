@@ -235,7 +235,7 @@ def add_cylinder( polygons, cx, cy, cz, radius, height, step):
                     top_center[1],
                     top_center[2],
                     points[offset + i + 1][0],
-                    points[pffset + i + 1][1],
+                    points[offset + i + 1][1],
                     points[offset + i + 1][2],
                     points[offset + i + 2][0],
                     points[offset + i + 2][1],
