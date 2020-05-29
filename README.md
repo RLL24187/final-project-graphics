@@ -19,7 +19,12 @@
       * add_pyramid( polygons, x, y, z, width, height, depth )
     * Cylinder
       * Starting Point: center of bottom of cylinder (cx, cy, cz)
+      * Generates an upright standing cylinder with center aligning with the y-axis
       * add_cylinder(polygons, cx, cy, cz, radius, height, step)
+    * Cone:
+      * Starting Point: center of bottom of cone (cx, cy, cz)
+      * Generates an upright standing cone with center aligning with the y-axis
+      * add_cone(polygons, cx, cy, cz, radius, height, step)
   * Changing Behavior of Vary
     * Adding a parameter to calculate change over time using functions including:
       * Linear, Quadratic, Cubic, etc.
@@ -37,7 +42,8 @@ Thursday, 5/28/2020
   * Wrote the code for add_wedge and add_pyramid
 * Rachel:
   * Wrote the code for generate_cylinder and add_cylinder, but doesn't quite work yet
-  
+
 Friday, 5/29/2020
 * Rachel:
   * Finished generate_cylinder and add_cylinder
+  * Finished generate_cone and add_cone
