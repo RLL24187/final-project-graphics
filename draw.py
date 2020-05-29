@@ -169,7 +169,7 @@ def generate_cylinder( polygons, cx, cy, cz, radius, height, step):
 
 def add_cylinder( polygons, cx, cy, cz, radius, height, step):
 
-    points = generate_torus(cx, cy, cz, radius, height, step)
+    points = generate_cylinder(cx, cy, cz, radius, height, step)
 
     lat_start = 0
     lat_stop = step
