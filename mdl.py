@@ -14,7 +14,7 @@ tokens = (
     "AMBIENT",
     "TORUS",
     "SPHERE",
-    "CYLINDER"
+    "CYLINDER",
     "PYRAMID",
     "WEDGE",
     "BOX",
