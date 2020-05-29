@@ -56,7 +56,7 @@ reserved = {
     "ambient" : "AMBIENT",
     "torus" : "TORUS",
     "sphere" : "SPHERE",
-    "cylinder: CYLINDER"
+    "cylinder: CYLINDER",
     "pyramid" : "PYRAMID",
     "wedge" : "WEDGE",
     "box" : "BOX",
