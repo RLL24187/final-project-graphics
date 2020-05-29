@@ -143,7 +143,7 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons, x, y1, z, x1, y1, z1, x1, y1, z)
     add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
 
-def generate_cylinder( polygons, cx, cy, cz, radius, height, step):
+def generate_cylinder(cx, cy, cz, radius, height, step):
     points = []
     layer_start = 0
     layer_stop = step
