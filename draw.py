@@ -143,6 +143,104 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons, x, y1, z, x1, y1, z1, x1, y1, z)
     add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
 
+def generate_cylinder( polygons, cx, cy, cz, radius, height, step):
+    points = []
+    layer_start = 0
+    layer_stop = step
+    circ_start = 0
+    circ_stop = step
+
+    dy = height / float(step)
+
+    points.append(cx, cy, cz)
+
+    for layer in range(layer_start, layer_stop):
+        rot = layer/float(step)
+        for circle in range(circ_start, circ_stop):
+            circ = circle/float(step)
+
+            x = math.cos(2*math.pi * rot) * radius + cx;
+            y = dy * layer + cy;
+            z = math.sin(2*math.pi * rot) * radius + cz;
+
+            points.append([x, y, z])
+    points.append(cx, cy + height, cz)
+    return points
+
+def add_cylinder( polygons, cx, cy, cz, radius, height, step):
+
+    points = generate_torus(cx, cy, cz, radius, height, step)
+
+    lat_start = 0
+    lat_stop = step
+    longt_start = 0
+    longt_stop = step
+
+    bottom_center = points[0]
+    top_center = points[-1]
+    #bot circle
+    i = 0
+    while i < step - 1:
+        add_polygon(polygons,
+                    bottom_center[0],
+                    bottom_center[1],
+                    bottom_center[2],
+                    points[i + 1][0],
+                    points[i + 1][1],
+                    points[i + 1][2],
+                    points[i + 2][0],
+                    points[i + 2][1],
+                    points[i + 2][2])
+        i += 1
+
+    #side triangles
+    for lat in range(lat_start, lat_stop):
+        for longt in range(longt_start, longt_stop):
+
+            p0 = lat * step + longt + 1;
+            if (longt == (step - 1)):
+                p1 = p0 - longt;
+            else:
+                p1 = p0 + 1;
+            p2 = (p1 + step) % (step * step);
+            p3 = (p0 + step) % (step * step);
+
+            add_polygon(polygons,
+                        points[p0][0],
+                        points[p0][1],
+                        points[p0][2],
+                        points[p3][0],
+                        points[p3][1],
+                        points[p3][2],
+                        points[p2][0],
+                        points[p2][1],
+                        points[p2][2] )
+            add_polygon(polygons,
+                        points[p0][0],
+                        points[p0][1],
+                        points[p0][2],
+                        points[p2][0],
+                        points[p2][1],
+                        points[p2][2],
+                        points[p1][0],
+                        points[p1][1],
+                        points[p1][2] )
+    #top circle
+    i = 0
+    offset = steps * (steps - 1)
+    while i < step - 1:
+        add_polygon(polygons,
+                    top_center[0],
+                    top_center[1],
+                    top_center[2],
+                    points[offset + i + 1][0],
+                    points[pffset + i + 1][1],
+                    points[offset + i + 1][2],
+                    points[offset + i + 2][0],
+                    points[offset + i + 2][1],
+                    points[offset + i + 2][2])
+        i += 1
+
 def add_pyramid( polygons, x, y, z, width, height, depth ):
     w = width/2
     d = depth/2

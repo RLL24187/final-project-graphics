@@ -14,15 +14,17 @@
     * Wedge
       * Starting Point: left-bottom-front vertex (x, y, z)
       * add_wedge( polygons, x, y, z, width, height, depth )
-    * Square pyramid 
+    * Square pyramid
       * Starting Point: top vertex (x, y, z)
       * add_pyramid( polygons, x, y, z, width, height, depth )
     * Cylinder
+      * Starting Point: center of bottom of cylinder (cx, cy, cz)
+      * add_cylinder(polygons, cx, cy, cz, radius, height, step)
   * Changing Behavior of Vary
     * Adding a parameter to calculate change over time using functions including:
       * Linear, Quadratic, Cubic, etc.
       * Sine/Cosine Function
-      * Arbitrary 
+      * Arbitrary
     * Using vary to move lights
       * Include a parameter to specify a light source to vary
 
@@ -30,8 +32,8 @@
 
 *Development Log*
 
-5/28/2020
-* Kayla: Wrote the code for add_wedge and add_pyramid
-
-
-
+Thursday, 5/28/2020
+* Kayla:
+  * Wrote the code for add_wedge and add_pyramid
+* Rachel:
+  * Wrote the code for add_cylinder
