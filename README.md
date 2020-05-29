@@ -36,4 +36,8 @@ Thursday, 5/28/2020
 * Kayla:
   * Wrote the code for add_wedge and add_pyramid
 * Rachel:
-  * Wrote the code for add_cylinder
+  * Wrote the code for generate_cylinder and add_cylinder, but doesn't quite work yet
+  
+Friday, 5/29/2020
+* Rachel:
+  * Finished generate_cylinder and add_cylinder
