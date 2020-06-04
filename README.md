@@ -47,3 +47,7 @@ Friday, 5/29/2020
 * Rachel:
   * Finished generate_cylinder and add_cylinder
   * Finished generate_cone and add_cone
+
+Wednesday, 6/3/2020
+* Rachel & Kayla:
+  * Discussed how to use vary to move lights
