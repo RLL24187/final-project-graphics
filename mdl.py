@@ -8,7 +8,7 @@ tokens = (
     "INT",
     "COMMENT",
     "LIGHT",
-    "LIGHTS",
+    "MOVE_LIGHT",
     "CONSTANTS",
     "SAVE_COORDS",
     "CAMERA",
@@ -52,7 +52,7 @@ reserved = {
     "z" : "XYZ",
     "screen" : "SCREEN",
     "light" : "LIGHT",
-    "lights" : "LIGHTS",
+    "move_light" : "MOVE_LIGHT",
     "constants" : "CONSTANTS",
     "save_coord_system" : "SAVE_COORDS",
     "camera" : "CAMERA",
@@ -328,9 +328,9 @@ def p_command_move(p):
         symbols[p[5]] = ['knob', 0]
     commands.append(cmd)
 
-def p_command_lights(p):
-    """command : LIGHTS NUMBER NUMBER NUMBER SYMBOL
-               | LIGHTS NUMBER NUMBER NUMBER"""
+def p_command_move_light(p):
+    """command : MOVE_LIGHT NUMBER NUMBER NUMBER SYMBOL
+               | MOVE_LIGHT NUMBER NUMBER NUMBER"""
     cmd = {'op' : p[1], 'args' : p[2:5], 'knob' : None}
     if len(p) == 6:
         cmd['knob'] = p[5]
