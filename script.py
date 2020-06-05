@@ -158,7 +158,7 @@ def run(filename):
             args = command['args']
             knob_value = 1
 
-            if c == 'light'
+            if c == 'light':
             if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
