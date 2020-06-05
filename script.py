@@ -141,6 +141,8 @@ def run(filename):
         consts = ''
         coords = []
         coords1 = []
+        moveLight = []
+        isLight = False
 
 
         #Set symbol values for multiple frames
@@ -155,7 +157,12 @@ def run(filename):
             c = command['op']
             args = command['args']
             knob_value = 1
-
+            
+            if c == 'light':
+                isLight = True
+                if command['knob']:
+                    knob_value = symbols[command['knob']][1]
+                moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
@@ -163,6 +170,8 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -173,6 +182,8 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], step_3d)
                 matrix_mult(stack[-1], tmp)
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -183,6 +194,8 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], step_3d)
                 matrix_mult(stack[-1], tmp)
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -193,6 +206,8 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -203,6 +218,8 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -212,6 +229,8 @@ def run(filename):
                 add_sphere(tmp,
                            args[0], args[1], args[2], args[3], step_3d)
                 matrix_mult( stack[-1], tmp )
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
@@ -221,6 +240,8 @@ def run(filename):
                 add_torus(tmp,
                           args[0], args[1], args[2], args[3], args[4], step_3d)
                 matrix_mult( stack[-1], tmp )
+                if (isLight):
+                    light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
