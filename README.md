@@ -25,6 +25,7 @@
       * Starting Point: center of bottom of cone (cx, cy, cz)
       * Generates an upright standing cone with center aligning with the y-axis
       * add_cone(polygons, cx, cy, cz, radius, height, step)
+  * Adding More Light Sources
   * Changing Behavior of Vary
     * Adding a parameter to calculate change over time using functions including:
       * Linear, Quadratic, Cubic, etc.

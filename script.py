@@ -142,7 +142,6 @@ def run(filename):
         coords = []
         coords1 = []
         moveLight = [0, 0, 0]
-        isLight = False
 
 
         #Set symbol values for multiple frames
@@ -159,13 +158,10 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-<<<<<<< HEAD
-=======
                 light.append(
                     [args[0], args[1], args[2]],
                     [args[3], args[4], args[5]]
                 )
->>>>>>> 093c0cd14f0abdb33a4a48587f5287a7fda1325e
             if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
