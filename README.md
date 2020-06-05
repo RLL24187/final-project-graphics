@@ -51,3 +51,7 @@ Friday, 5/29/2020
 Wednesday, 6/3/2020
 * Rachel & Kayla:
   * Discussed how to use vary to move lights
+
+Thursday, 6/4/2020
+* Rachel & Kayla:
+  * Started to write the code for how to move the light source
