@@ -142,7 +142,6 @@ def run(filename):
         coords = []
         coords1 = []
         moveLight = [0, 0, 0]
-        isLight = False
 
 
         #Set symbol values for multiple frames
