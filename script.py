@@ -164,6 +164,7 @@ def run(filename):
                         [args[3], args[4], args[5]]
                     ]
                 )
+                print(lights)
             if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
