@@ -159,9 +159,11 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-                light.append(
-                    [args[0], args[1], args[2]],
-                    [args[3], args[4], args[5]]
+                lights.append(
+                    [
+                        [args[0], args[1], args[2]],
+                        [args[3], args[4], args[5]]
+                    ]
                 )
             if c == 'move_light':
                 if command['knob']:
