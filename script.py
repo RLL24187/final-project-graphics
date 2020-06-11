@@ -118,6 +118,8 @@ def run(filename):
              [255,
               255,
               255]]
+    lights = [{'firstLight':light}]
+    isFirstLight = True
 
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
@@ -156,6 +158,19 @@ def run(filename):
             args = command['args']
             knob_value = 1
 
+            if c == 'light':
+                l = {command['light']: (
+                [args[0], args[1], args[2]],
+                [args[3], args[4], args[5]]
+                )}
+                # if isFirstLight:
+                #     light = l[command['light']]
+                #     lights = [light]
+                #     isFirstLight = False
+                # else:
+                lights.append(l)
+                print(lights)
+            # add multiple lights
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
