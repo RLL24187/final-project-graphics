@@ -1,0 +1,103 @@
+frames 40
+basename dino_40
+constants white 1 1 1 1 1 1 1 1 1
+push
+move 0 60 0
+box 0 0 0 500 60 80
+push
+move 80 100 25
+box 0 0 0 44 5 30
+push
+move -3 -5 0
+box 0 0 0 50 22 30
+push
+move 7 -7 2
+box white 0 0 0 5 5 1
+pop
+push
+move 0 -22 0
+box 0 0 0 22 6 30
+push
+move 0 -6 0
+box 0 0 0 43 4 30
+push
+move 0 -4 0
+box 0 0 0 15 4 30
+push
+move -23 -4 0
+box 0 0 0 38 6 30
+push
+move -10 -6 0
+box 0 0 0 48 18 30
+push
+move 48 0 0
+box 0 0 0 8 4 30
+pop
+push
+move -15 -18 0
+box 0 0 0 63 4 30
+push
+move -5 0 0
+box 0 0 0 5 -35 30
+push
+move 5 0 0
+box 0 0 0 5 -23 30
+push
+move 5 0 0
+box 0 0 0 5 -17 30
+push
+move 5 0 0
+box 0 0 0 5 -10 30
+pop
+pop
+pop
+pop
+push
+move 3 -4 0
+box 0 0 0 56 4 30
+push
+move 6 -4 0
+box 0 0 0 44 4 30
+push
+move 6 -4 0
+box 0 0 0 32 4 30
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+pop
+push
+move 46 79 0 
+box 0 0 0 5 17 30
+pop
+push
+move 68 79 0 
+box 0 0 0 5 17 30
+pop
+push
+move 500 60 0 
+move -370 0 0 cactus
+box 0 0 0 10 -80 30
+push
+move -15 30 0
+box 0 0 0 15 10 30
+push
+move 0 0 0
+box 0 0 0 9 -30 30
+pop
+pop
+push
+move 10 40 0
+box 0 0 0 15 10 30
+push
+move 7 0 0
+box 0 0 0 8 -30 30
+vary cactus 0 39 0 1
+display
