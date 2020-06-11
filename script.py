@@ -112,17 +112,13 @@ def run(filename):
     ambient = [50,
                50,
                50]
-<<<<<<< HEAD
-    light = [[],[]]
-=======
     light = [[0.5,
               0.75,
               1],
              [255,
-              0,
-              0]]
+              255,
+              255]]
     lights = {'firstLight':light}
->>>>>>> master
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
                          {'red': [0.2, 0.5, 0.5],
@@ -161,23 +157,17 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-<<<<<<< HEAD
-                light[0] = [args[0], args[1], args[2]]
-                light[1] = [args[3], args[4], args[5]]
-            elif c == 'move_light':
-                if command['knob']:
-                    knob_value = symbols[command['knob']][1]
-                moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
-                light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
-            elif c == 'box':
-=======
                 lights[command['light']] = [
                 [args[3], args[4], args[5]],
                 [args[0], args[1], args[2]]]
                 print(lights)
             # add multiple lights
+            elif c == 'move_light':
+                if command['knob']:
+                    knob_value = symbols[command['knob']][1]
+                moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
+                light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
             if c == 'box':
->>>>>>> master
                 if command['constants']:
                     reflect = command['constants']
                 add_box(tmp,
@@ -233,13 +223,7 @@ def run(filename):
                 add_sphere(tmp,
                            args[0], args[1], args[2], args[3], step_3d)
                 matrix_mult( stack[-1], tmp )
-<<<<<<< HEAD
-                print("hey")
-                print(light[0])
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
-=======
                 draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
->>>>>>> master
                 tmp = []
                 reflect = '.white'
             elif c == 'torus':

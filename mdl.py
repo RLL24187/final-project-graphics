@@ -389,12 +389,7 @@ def p_command_light(p):
     "command : LIGHT SYMBOL NUMBER NUMBER NUMBER NUMBER NUMBER NUMBER"
     symbols[p[2]] = ['light', {'location' : p[3:6], 'color' : p[6:]}]
     cmd = {'op':p[1], 'args' : None, 'light' : p[2] }
-<<<<<<< HEAD
-    arg_start = 3
-    cmd['args'] = p[arg_start:arg_start+6]
-=======
     cmd['args'] = p[3:]
->>>>>>> master
     commands.append(cmd)
 
 def p_command_shading(p):
