@@ -350,15 +350,6 @@ def p_command_move(p):
         symbols[p[5]] = ['knob', 0]
     commands.append(cmd)
 
-def p_command_move_light(p):
-    """command : MOVE_LIGHT NUMBER NUMBER NUMBER SYMBOL
-               | MOVE_LIGHT NUMBER NUMBER NUMBER"""
-    cmd = {'op' : p[1], 'args' : p[2:5], 'knob' : None}
-    if len(p) == 6:
-        cmd['knob'] = p[5]
-        symbols[p[5]] = ['knob', 0]
-    commands.append(cmd)
-
 def p_command_scale(p):
     """command : SCALE NUMBER NUMBER NUMBER SYMBOL
                  | SCALE NUMBER NUMBER NUMBER"""
