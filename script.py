@@ -112,12 +112,7 @@ def run(filename):
     ambient = [50,
                50,
                50]
-    light = [[0.5,
-              0.75,
-              1],
-             [255,
-              255,
-              255]]
+    light = [[],[]]
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
                          {'red': [0.2, 0.5, 0.5],
@@ -157,14 +152,16 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-                light[0] = [args[0], args[1], args[2]]
-                light[1] = [args[3], args[4], args[5]]
-            if c == 'move_light':
+                light[0] = [args[1], args[2], args[3]]
+                light[1] = [args[4], args[5], args[6]]
+                print("hey")
+                print(light[1])
+            elif c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
                 moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
                 light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
-            if c == 'box':
+            elif c == 'box':
                 if command['constants']:
                     reflect = command['constants']
                 add_box(tmp,
@@ -174,7 +171,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'cylinder':
+            elif c == 'cylinder':
                 if command['constants']:
                     reflect = command['constants']
                 add_cylinder(tmp,
@@ -184,7 +181,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'cone':
+            elif c == 'cone':
                 if command['constants']:
                     reflect = command['constants']
                 add_cone(tmp,
@@ -194,7 +191,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'pyramid':
+            elif c == 'pyramid':
                 if command['constants']:
                     reflect = command['constants']
                 add_pyramid(tmp,
@@ -204,7 +201,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'wedge':
+            elif c == 'wedge':
                 if command['constants']:
                     reflect = command['constants']
                 add_wedge(tmp,
