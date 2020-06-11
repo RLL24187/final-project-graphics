@@ -112,13 +112,12 @@ def run(filename):
     ambient = [50,
                50,
                50]
-    lights = [
-                [ #light 0
-                    [0.5, 0.75, 1],
-                    [255, 255, 255]
-                ]
-             ]
-    light = lights[0]
+    light = [[0.5,
+              0.75,
+              1],
+             [255,
+              255,
+              255]]
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
                          {'red': [0.2, 0.5, 0.5],
@@ -158,13 +157,8 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-                lights.append(
-                    [
-                        [args[0], args[1], args[2]],
-                        [args[3], args[4], args[5]]
-                    ]
-                )
-                print(lights)
+                light[0] = [args[0], args[1], args[2]]
+		light[1] = [args[3], args[4], args[5]]
             if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]

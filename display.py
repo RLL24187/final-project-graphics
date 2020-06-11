@@ -1,6 +1,5 @@
 from subprocess import Popen, PIPE
-from os import remove, execlp
-import subprocess
+from os import remove, fork, execlp
 
 #constants
 XRES = 500
@@ -77,22 +76,21 @@ def save_ppm( screen, fname ):
 def save_extension( screen, fname ):
     ppm_name = fname[:fname.find('.')] + '.ppm'
     save_ppm( screen, ppm_name )
-    #p = Popen( ['convert', ppm_name, fname ], stdin=PIPE, stdout = PIPE )
-    #p.communicate()
-    #remove(ppm_name)
+    p = Popen( ['convert', ppm_name, fname ], stdin=PIPE, stdout = PIPE )
+    p.communicate()
+    remove(ppm_name)
 
 def display( screen ):
     ppm_name = 'pic.ppm'
     save_ppm( screen, ppm_name )
-    #p = Popen( ['display', ppm_name], stdin=PIPE, stdout = PIPE )
-    #p.communicate()
-    #remove(ppm_name)
+    p = Popen( ['display', ppm_name], stdin=PIPE, stdout = PIPE )
+    p.communicate()
+    remove(ppm_name)
 
 def make_animation( name ):
     name_arg = 'anim/' + name + '*'
     name = name + '.gif'
     print('Saving animation as ' + name)
-    # f = fork()
-    # if f == 0:
-    #     execlp('convert', 'convert', '-delay', '1.7', name_arg, name)
-    subprocess.call(["convert", "-delay", "1.7", name_arg, name])
+    f = fork()
+    if f == 0:
+        execlp('convert', 'convert', '-delay', '1.7', name_arg, name)
