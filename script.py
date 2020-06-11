@@ -116,11 +116,9 @@ def run(filename):
               0.75,
               1],
              [255,
-              255,
-              255]]
-    lights = [{'firstLight':light}]
-    isFirstLight = True
-
+              0,
+              0]]
+    lights = {'firstLight':light}
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
                          {'red': [0.2, 0.5, 0.5],
@@ -159,16 +157,9 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-                l = {command['light']: (
-                [args[0], args[1], args[2]],
-                [args[3], args[4], args[5]]
-                )}
-                # if isFirstLight:
-                #     light = l[command['light']]
-                #     lights = [light]
-                #     isFirstLight = False
-                # else:
-                lights.append(l)
+                lights[command['light']] = [
+                [args[3], args[4], args[5]],
+                [args[0], args[1], args[2]]]
                 print(lights)
             # add multiple lights
             if c == 'box':
@@ -178,7 +169,7 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             if c == 'cylinder':
@@ -188,7 +179,7 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], step_3d)
                 matrix_mult(stack[-1], tmp)
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             if c == 'cone':
@@ -198,7 +189,7 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], step_3d)
                 matrix_mult(stack[-1], tmp)
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             if c == 'pyramid':
@@ -208,7 +199,7 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             if c == 'wedge':
@@ -218,7 +209,7 @@ def run(filename):
                         args[0], args[1], args[2],
                         args[3], args[4], args[5])
                 matrix_mult( stack[-1], tmp )
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             elif c == 'sphere':
@@ -227,7 +218,7 @@ def run(filename):
                 add_sphere(tmp,
                            args[0], args[1], args[2], args[3], step_3d)
                 matrix_mult( stack[-1], tmp )
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             elif c == 'torus':
@@ -236,7 +227,7 @@ def run(filename):
                 add_torus(tmp,
                           args[0], args[1], args[2], args[3], args[4], step_3d)
                 matrix_mult( stack[-1], tmp )
-                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
             elif c == 'line':
