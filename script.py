@@ -152,10 +152,8 @@ def run(filename):
             knob_value = 1
 
             if c == 'light':
-                light[0] = [args[1], args[2], args[3]]
-                light[1] = [args[4], args[5], args[6]]
-                print("hey")
-                print(light[1])
+                light[0] = [args[0], args[1], args[2]]
+                light[1] = [args[3], args[4], args[5]]
             elif c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
@@ -217,6 +215,8 @@ def run(filename):
                 add_sphere(tmp,
                            args[0], args[1], args[2], args[3], step_3d)
                 matrix_mult( stack[-1], tmp )
+                print("hey")
+                print(light[0])
                 draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
                 tmp = []
                 reflect = '.white'
