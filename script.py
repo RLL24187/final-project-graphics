@@ -112,13 +112,13 @@ def run(filename):
     ambient = [50,
                50,
                50]
-    lights = [
-                [ #light 0
-                    [0.5, 0.75, 1],
-                    [255, 255, 255]
-                ]
-             ]
-    light = lights[0]
+    light = [[0.5,
+              0.75,
+              1],
+             [255,
+              255,
+              255]]
+
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
                          {'red': [0.2, 0.5, 0.5],
@@ -141,7 +141,6 @@ def run(filename):
         consts = ''
         coords = []
         coords1 = []
-        moveLight = [0, 0, 0]
 
 
         #Set symbol values for multiple frames
@@ -149,7 +148,7 @@ def run(filename):
             frame = frames[f]
             for knob in frame:
                 symbols[knob][1] = frame[knob]
-                print('\tknob: ' + knob + '\tvalue: ' + str(frame[knob]))
+                print('\tkob: ' + knob + '\tvalue: ' + str(frame[knob]))
 
         for command in commands:
             print(command)
@@ -157,19 +156,6 @@ def run(filename):
             args = command['args']
             knob_value = 1
 
-            if c == 'light':
-                lights.append(
-                    [
-                        [args[0], args[1], args[2]],
-                        [args[3], args[4], args[5]]
-                    ]
-                )
-                print(lights)
-            if c == 'move_light':
-                if command['knob']:
-                    knob_value = symbols[command['knob']][1]
-                moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
-                light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
