@@ -56,3 +56,7 @@ Wednesday, 6/3/2020
 Thursday, 6/4/2020
 * Rachel & Kayla:
   * Started to write the code for how to move the light source
+
+Wednesday, 6/10/2020
+* Kayla:
+  * Worked on testing the moving light --> the middle images are not displaying correctly
