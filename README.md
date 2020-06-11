@@ -35,7 +35,15 @@
       * Sine/Cosine Function
       * Arbitrary
     * Using vary to move lights
-      * Include a parameter to specify a light source to vary
+      * New function: move_light
+      * MDL syntax: move_light [name] x y z [knob]
+        * move_light name x y z
+            * Moves the specified light x units in the x-axis, y units in the y-axis, and z units in the z-axis
+        * move_light x y z
+            * Moves all lights x units in the x-axis, y units in the y-axis, and z units in the z-axis
+
+
+      Include a parameter to specify a light source to vary
 
 **Stage 1: Work**
 

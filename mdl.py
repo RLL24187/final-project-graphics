@@ -23,6 +23,7 @@ tokens = (
     "MESH",
     "TEXTURE",
     "SET",
+    "MOVE_LIGHT",
     "MOVE",
     "SCALE",
     "ROTATE",
@@ -66,6 +67,7 @@ reserved = {
     "mesh" : "MESH",
     "texture" : "TEXTURE",
     "set" : "SET",
+    "move_light" : "MOVE_LIGHT",
     "move" : "MOVE",
     "scale" : "SCALE",
     "rotate" : "ROTATE",
@@ -315,6 +317,26 @@ def p_command_line(p):
         cmd['cs1'] = p[9]
     if len(p) == 11 and isinstance(p[10], str):
         cmd['cs1'] = p[10]
+    commands.append(cmd)
+
+def p_command_move_light(p):
+    """ command : MOVE_LIGHT NUMBER NUMBER NUMBER
+                | MOVE_LIGHT NUMBER NUMBER NUMBER SYMBOL
+                | MOVE_LIGHT SYMBOL NUMBER NUMBER NUMBER
+                | MOVE_LIGHT SYMBOL NUMBER NUMBER NUMBER SYMBOL"""
+    cmd = {'op' : p[1], 'symbols' : None, 'args' : None, 'knob' : None}
+    arg_start = 2
+    if isinstance(p[arg_start], str):
+        cmd['symbols'] = [p[arg_start]]
+        arg_start += 1
+    print(cmd)
+    if len(p) == 6 and isinstance(p[5], str):
+        cmd['knob'] = p[5]
+        symbols[p[5]] = ['knob', 0]
+    elif len(p) == 7 and isinstance(p[6], str):
+        cmd['knob'] = p[6]
+        symbols[p[6]] = ['knob', 0]
+    cmd['args'] = p[arg_start: arg_start + 3]
     commands.append(cmd)
 
 def p_command_move(p):

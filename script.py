@@ -128,7 +128,7 @@ def run(filename):
 
     (name, num_frames) = first_pass(commands)
     frames = second_pass(commands, num_frames)
-
+    symbols['firstLight'] = ['light', {'location' : light[0], 'color' : light[1]}]
     for f in range(num_frames):
         tmp = new_matrix()
         ident( tmp )
@@ -156,12 +156,33 @@ def run(filename):
             args = command['args']
             knob_value = 1
 
+            # add multiple lights
             if c == 'light':
                 lights[command['light']] = [
                 [args[3], args[4], args[5]],
                 [args[0], args[1], args[2]]]
-                print(lights)
-            # add multiple lights
+                # print(lights)
+            # move lights
+            if c == 'move_light':
+                if command['knob']:
+                    knob_value = symbols[command['knob']][1]
+                    print(knob_value)
+                moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
+                # print("moveLight")
+                # print(moveLight)
+                if command['symbols']:
+                    for symbol in command['symbols']:
+                        print(symbol)
+                        # print(symbol[0])
+                        lights[symbol][0] = [lights[symbol][0][0] + moveLight[0], lights[symbol][0][1] + moveLight[1], lights[symbol][0][2] + moveLight[2]]
+                        symbols[symbol][1]['location'] = lights[symbol][0]
+                else:
+                    for l in lights:
+                        # print(l)
+                        # print(lights[l])
+                        lights[l][0] = [lights[l][0][0] + moveLight[0], lights[l][0][1] + moveLight[1], lights[l][0][2] + moveLight[2]]
+                        # print(lights[l])
+                        symbols[l][1]['location'] = lights[l][0]
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
