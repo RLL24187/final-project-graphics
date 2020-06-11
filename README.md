@@ -25,7 +25,10 @@
       * Starting Point: center of bottom of cone (cx, cy, cz)
       * Generates an upright standing cone with center aligning with the y-axis
       * add_cone(polygons, cx, cy, cz, radius, height, step)
-  * Adding More Light Sources
+  * Adding Multiple Light Sources
+      * MDL file syntax for light: light name r b g x y z
+      * If you define a light with the same name twice, the later light definition will replace the original
+      * The first light is always called "firstLight"
   * Changing Behavior of Vary
     * Adding a parameter to calculate change over time using functions including:
       * Linear, Quadratic, Cubic, etc.
@@ -56,3 +59,11 @@ Wednesday, 6/3/2020
 Thursday, 6/4/2020
 * Rachel & Kayla:
   * Started to write the code for how to move the light source
+
+Wednesday, 6/10/2020
+* Kayla:
+  * Worked on testing the moving light --> the middle images are not displaying correctly
+
+Thursday, 6/11/2020
+* Rachel:
+  * Finished implementing more light sources
