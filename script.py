@@ -275,10 +275,9 @@ def run(filename):
                 save_extension(screen, args[0])
             # end operation loop
         if num_frames > 1:
-            #fname = 'anim/%s%03d.png'%(name, f)
-            print('Saving frame: '  + str(num_frames))
-            save_extension(screen, "anim/" + name + '%03d'%num_frames+ ".png")
-            #save_extension(screen, fname)
+            fname = '%s%03d.png'%(name, f)
+            print('Saving frame: '  + fname)
+            save_extension(screen, fname)
         # end fromes loop
     #if num_frames > 1:
         #make_animation(name)

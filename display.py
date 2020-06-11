@@ -2,6 +2,7 @@ from subprocess import Popen, PIPE
 from os import remove, execlp
 import subprocess
 from PIL import Image
+import os
 
 #constants
 XRES = 500
@@ -78,10 +79,11 @@ def save_ppm( screen, fname ):
 def save_extension( screen, fname ):
     ppm_name = fname[:fname.find('.')] + '.ppm'
     save_ppm( screen, ppm_name )
+    #os.system('magick convert" + ppm_name + fname')  
     #params = ['convert', 'ppm_name', 'fname']
     #subprocess.check_call(params)
-    #image = Image.open("ppm_name")
-    #image.save("fname")
+    #image = Image.open(ppm_name)
+    #image.save(fname)
     #p = Popen( ['convert', ppm_name, fname ], stdin=PIPE, stdout = PIPE)
     #p.communicate()
     #remove(ppm_name)
@@ -89,9 +91,9 @@ def save_extension( screen, fname ):
 def display( screen ):
     ppm_name = 'pic.ppm'
     save_ppm( screen, ppm_name )
-    p = Popen( ['display', ppm_name], stdin=PIPE, stdout = PIPE)
-    p.communicate()
-    remove(ppm_name)
+    #p = Popen( ['display', ppm_name], stdin=PIPE, stdout = PIPE)
+    #p.communicate()
+    #remove(ppm_name)
 
 def make_animation( name ):
     name_arg = 'anim/' + name + '*'
