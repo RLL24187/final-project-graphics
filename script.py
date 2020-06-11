@@ -155,7 +155,6 @@ def run(filename):
             c = command['op']
             args = command['args']
             knob_value = 1
-            lightnum = []
 
             if c == 'light':
                 lights[command['light']] = [
@@ -168,7 +167,6 @@ def run(filename):
                     knob_value = symbols[command['knob']][1]
                 moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
                 lights.update({lightname:[[lights[lightname][0][0] + moveLight[0], lights[lightname][0][1] + moveLight[1], lights[lightname][0][2] + moveLight[2]], [lights[lightname][1][0], lights[lightname][1][1], lights[lightname][1][2]]]})
-                #print(lights[lightname][0][0])
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
