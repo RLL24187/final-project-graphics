@@ -319,18 +319,29 @@ def p_command_line(p):
         cmd['cs1'] = p[10]
     commands.append(cmd)
 
+def p_command_move_light(p):
+    """ command : MOVE_LIGHT NUMBER NUMBER NUMBER
+                | MOVE_LIGHT NUMBER NUMBER NUMBER SYMBOL
+                | MOVE_LIGHT SYMBOL NUMBER NUMBER NUMBER
+                | MOVE_LIGHT SYMBOL NUMBER NUMBER NUMBER SYMBOL"""
+    cmd = {'op' : p[1], 'symbols' : None, 'args' : None, 'knob' : None}
+    arg_start = 2
+    if isinstance(p[arg_start], str):
+        cmd['symbols'] = [p[arg_start]]
+        arg_start += 1
+    print(cmd)
+    if len(p) == 6 and isinstance(p[5], str):
+        cmd['knob'] = p[5]
+        symbols[p[5]] = ['knob', 0]
+    elif len(p) == 7 and isinstance(p[6], str):
+        cmd['knob'] = p[6]
+        symbols[p[6]] = ['knob', 0]
+    cmd['args'] = p[arg_start: arg_start + 3]
+    commands.append(cmd)
+
 def p_command_move(p):
     """command : MOVE NUMBER NUMBER NUMBER SYMBOL
                | MOVE NUMBER NUMBER NUMBER"""
-    cmd = {'op' : p[1], 'args' : p[2:5], 'knob' : None}
-    if len(p) == 6:
-        cmd['knob'] = p[5]
-        symbols[p[5]] = ['knob', 0]
-    commands.append(cmd)
-
-def p_command_move_light(p):
-    """command : MOVE_LIGHT NUMBER NUMBER NUMBER SYMBOL
-               | MOVE_LIGHT NUMBER NUMBER NUMBER"""
     cmd = {'op' : p[1], 'args' : p[2:5], 'knob' : None}
     if len(p) == 6:
         cmd['knob'] = p[5]
