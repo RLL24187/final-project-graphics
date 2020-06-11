@@ -2,7 +2,7 @@ frames 20
 basename simple_20
 light blue 0 0 255 100 100 100
 light green 0 255 0 -100 -100 -100
-move_light 90 90 90 reversemovey
+move_light 90 0 0 reversemovey
 move_light green 110 110 300 movey
 push
 move 250 250 0
