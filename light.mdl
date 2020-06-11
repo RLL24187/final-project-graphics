@@ -1,7 +1,7 @@
 frames 20
 basename simple_20
-light sun 255 255 255 1 1 1 
-move_light -2 -2 2 movey
+light sun 1 1 1 255 0 0
+move_light -5 -5 2 movey
 push
 move 250 250 0
 sphere 0 0 0 100 

@@ -141,7 +141,7 @@ def run(filename):
         consts = ''
         coords = []
         coords1 = []
-
+        lightname = str()
 
         #Set symbol values for multiple frames
         if num_frames > 1:
@@ -155,18 +155,20 @@ def run(filename):
             c = command['op']
             args = command['args']
             knob_value = 1
+            lightnum = []
 
             if c == 'light':
                 lights[command['light']] = [
-                [args[3], args[4], args[5]],
-                [args[0], args[1], args[2]]]
-                print(lights)
+                [args[0], args[1], args[2]],
+                [args[3], args[4], args[5]]]
+                lightname = command['light']
             # add multiple lights
-            elif c == 'move_light':
+            if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
                 moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
-                light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
+                lights.update({lightname:[[lights[lightname][0][0] + moveLight[0], lights[lightname][0][1] + moveLight[1], lights[lightname][0][2] + moveLight[2]], [lights[lightname][1][0], lights[lightname][1][1], lights[lightname][1][2]]]})
+                #print(lights[lightname][0][0])
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
@@ -278,7 +280,7 @@ def run(filename):
                 save_extension(screen, args[0])
             # end operation loop
         if num_frames > 1:
-            fname = '%s%03d.png'%(name, f)
+            fname = 'anim/%s%03d.png'%(name, f)
             print('Saving frame: '  + fname)
             save_extension(screen, fname)
         # end fromes loop
