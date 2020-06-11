@@ -116,8 +116,8 @@ def run(filename):
               0.75,
               1],
              [255,
-              0,
-              0]]
+              255,
+              255]]
     lights = {'firstLight':light}
     color = [0, 0, 0]
     symbols['.white'] = ['constants',
@@ -141,7 +141,7 @@ def run(filename):
         consts = ''
         coords = []
         coords1 = []
-
+        lightname = str()
 
         #Set symbol values for multiple frames
         if num_frames > 1:
@@ -193,7 +193,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'cylinder':
+            elif c == 'cylinder':
                 if command['constants']:
                     reflect = command['constants']
                 add_cylinder(tmp,
@@ -203,7 +203,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'cone':
+            elif c == 'cone':
                 if command['constants']:
                     reflect = command['constants']
                 add_cone(tmp,
@@ -213,7 +213,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'pyramid':
+            elif c == 'pyramid':
                 if command['constants']:
                     reflect = command['constants']
                 add_pyramid(tmp,
@@ -223,7 +223,7 @@ def run(filename):
                 draw_polygons(tmp, screen, zbuffer, view, ambient, lights, symbols, reflect)
                 tmp = []
                 reflect = '.white'
-            if c == 'wedge':
+            elif c == 'wedge':
                 if command['constants']:
                     reflect = command['constants']
                 add_wedge(tmp,
@@ -298,5 +298,5 @@ def run(filename):
             print('Saving frame: '  + fname)
             save_extension(screen, fname)
         # end fromes loop
-    if num_frames > 1:
-        make_animation(name)
+    #if num_frames > 1:
+        #make_animation(name)
