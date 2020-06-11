@@ -169,7 +169,7 @@ def run(filename):
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
                 moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
-                light[LOCATION] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
+                light[0] = [light[0][0] + moveLight[0], light[0][1] + moveLight[1], light[0][2] + moveLight[2]]
             if c == 'box':
                 if command['constants']:
                     reflect = command['constants']
