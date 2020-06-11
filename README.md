@@ -60,3 +60,7 @@ Thursday, 6/4/2020
 Wednesday, 6/10/2020
 * Kayla:
   * Worked on testing the moving light --> the middle images are not displaying correctly
+
+Thursday, 6/11/2020
+* Rachel:
+  * Finished implementing more light sources
