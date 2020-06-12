@@ -1,37 +1,43 @@
 # Final Project Graphics
 **Stage 1: Work**
 *Features Implemented*
-* Existing MDL Commands/Features to Implement
-  * light
-* Modified Existing MDL Commands/Features to Implement
-  * Adding New Primitive Shapes:
-    * Wedge
-      * Starting Point: left-bottom-front vertex (x, y, z)
-      * add_wedge( polygons, x, y, z, width, height, depth )
-    * Square pyramid
-      * Starting Point: top vertex (x, y, z)
-      * add_pyramid( polygons, x, y, z, width, height, depth )
-    * Cylinder
-      * Starting Point: center of bottom of cylinder (cx, cy, cz)
-      * Generates an upright standing cylinder with center aligning with the y-axis
-      * add_cylinder(polygons, cx, cy, cz, radius, height, step)
-    * Cone:
-      * Starting Point: center of bottom of cone (cx, cy, cz)
-      * Generates an upright standing cone with center aligning with the y-axis
-      * add_cone(polygons, cx, cy, cz, radius, height, step)
-  * Adding Multiple Light Sources
-      * MDL file syntax for light: light name r b g x y z
-      * If you define a light with the same name twice, the later light definition will replace the original
-      * The first light is always called "firstLight"
-  * Changing Behavior of Vary
-      * Using vary to move lights
-      * New function: move_light
-          * MDL syntax: move_light [name] x y z [knob]
-          * move_light name x y z
-              * Moves the specified light x units in the x-axis, y units in the y-axis, and z units in the z-axis
-          * move_light x y z
-              * Moves all lights x units in the x-axis, y units in the y-axis, and z units in the z-axis
-              
+* MDL function: light
+  * Allow for multiple lights
+  * Edited vary for moving lights
+* New Primitive Shapes:
+  * Wedge
+  * Square pyramid
+  * Cylinder
+  * Cone:
+
+*Details about features*
+* Adding Multiple Light Sources
+    * MDL file syntax for light: light name r b g x y z
+    * If you define a light with the same name twice, the later light definition will replace the original
+    * The first light is always called "firstLight"
+* Changing Behavior of Vary
+    * Using vary to move lights
+    * New function: move_light
+        * MDL syntax: move_light [name] x y z [knob]
+        * move_light name x y z
+            * Moves the specified light x units in the x-axis, y units in the y-axis, and z units in the z-axis
+        * move_light x y z
+            * Moves all lights x units in the x-axis, y units in the y-axis, and z units in the z-axis
+    * New Primitive Shapes
+      * Wedge
+        * Starting Point: left-bottom-front vertex (x, y, z)
+        * add_wedge( polygons, x, y, z, width, height, depth )
+      * Square pyramid
+        * Starting Point: top vertex (x, y, z)
+        * add_pyramid( polygons, x, y, z, width, height, depth )
+      * Cylinder
+        * Starting Point: center of bottom of cylinder (cx, cy, cz)
+        * Generates an upright standing cylinder with center aligning with the y-axis
+        * add_cylinder(polygons, cx, cy, cz, radius, height, step)
+      * Cone:
+        * Starting Point: center of bottom of cone (cx, cy, cz)
+        * Generates an upright standing cone with center aligning with the y-axis
+        * add_cone(polygons, cx, cy, cz, radius, height, step)
 *Development Log*
 
 Thursday, 5/28/2020
