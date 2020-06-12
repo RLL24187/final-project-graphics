@@ -45,6 +45,7 @@
 * Square pyramid used for cactus spikes
 * Cylinder used for cactus
 * Cone used for party hat
+* Can better view shapes and moving light in shapesdemo.mdl
 
 *Development Log*
 

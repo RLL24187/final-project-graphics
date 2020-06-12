@@ -1,0 +1,59 @@
+frames 20
+basename demo_20
+constants shiny_purple 0.2 0.3 0.7 0.0 0.0 0.0 0.0 0.3 0.7
+constants matte_purple 0.2 0.7 0.3 0.0 0.0 0.0 0.0 0.7 0.3
+constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
+constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
+constants cactus_green 0 0 0 .8 1 .5 0 0 0
+constants white 1 1 1 1 1 1 1 1 1
+//BODY
+light green 0 255 0 1 1 1
+light blue 0 0 255 -1 -1 -1
+light red 255 0 0 1 1 -1
+move_light green .75 .5 0 movey
+move_light blue -.75 0 .8 movey
+move_light red .6 -.5 .5 movey
+move_light 2 2 2 movey
+push
+move 250 250 0
+rotate x -45
+rotate y 15
+rotate z 15
+rotate x 360 movey
+rotate y 360 movey
+rotate z 360 movey
+cone shiny_purple 0 0 0 50 100
+pop
+push
+move 100 200 0
+rotate x 20
+rotate y 50
+rotate z 45
+rotate x 360 movey
+rotate y 360 movey
+rotate z 360 movey
+cylinder shiny_teal 0 0 0 40 100
+pop
+push
+move 300 100 0
+rotate x 15
+rotate y 30
+rotate z 35
+rotate x 360 movey
+rotate y 360 movey
+rotate z 360 movey
+pyramid dull_yellow 0 0 0 50 60 70
+pop
+push move 400 400 0
+rotate x 15
+rotate y 15
+rotate z 15
+rotate x 360 movey
+rotate y 360 movey
+rotate z 360 movey
+wedge cactus_green 0 0 0 35 25 45
+pop
+push
+move 100 400 0
+sphere white 0 0 0 90
+vary movey 0 19 0 1

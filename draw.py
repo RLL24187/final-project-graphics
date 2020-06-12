@@ -382,8 +382,8 @@ def add_cone( polygons, cx, cy, cz, radius, height, step):
     #top point
     i = 0
     offset = step * (step - 2)
-    print(len(points))
-    print(offset)
+    # print(len(points))
+    # print(offset)
     while i < step - 1:
         add_polygon(polygons,
                     points[offset + i + 1][0],
