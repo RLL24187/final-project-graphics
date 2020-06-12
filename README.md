@@ -10,7 +10,7 @@
   * Cylinder
   * Cone:
 
-*Details about features*
+*Details About Features*
 * Adding Multiple Light Sources
     * MDL file syntax for light: light name r b g x y z
     * If you define a light with the same name twice, the later light definition will replace the original
@@ -38,6 +38,14 @@
         * Starting Point: center of bottom of cone (cx, cy, cz)
         * Generates an upright standing cone with center aligning with the y-axis
         * add_cone(polygons, cx, cy, cz, radius, height, step)
+
+*Details on Implementaion in Our Animation*
+* Multiple lights are moving around
+* Wedge used for dino tail
+* Square pyramid used for cactus spikes
+* Cylinder used for cactus
+* Cone used for party hat
+
 *Development Log*
 
 Thursday, 5/28/2020
