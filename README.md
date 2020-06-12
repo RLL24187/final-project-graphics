@@ -65,9 +65,13 @@ Wednesday, 6/10/2020
 
 Thursday, 6/11/2020
 * Rachel:
-  * Finished implementing more light sources
-  * Made cactus for gif
+  * Finished implementing multiple light sources
+  * Made cactus, cactus move, and dino jump for gif
   * Worked with Kayla to finish move_light
+* Kayla:
+  * Finished move_light
+  * Added multiple moving light sources for gif
+  * Made party hat, dino, and disco ball for gif
 
 **Stage 0: Proposal**
 
