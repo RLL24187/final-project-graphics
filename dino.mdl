@@ -15,7 +15,9 @@ push
 move -200 -190 290
 box shiny_green -120 0 0 850 80 590
 push
-move 80 100 -375
+move 80 280 -375
+move 0 180 0 jump
+move 0 -180 0 fall
 rotate z 28
 cone dull_pink 0 0 0 17 33
 push
@@ -24,7 +26,9 @@ sphere dull_yellow 0 0 0 5
 pop
 pop
 push
-move 80 100 -360
+move 80 280 -360
+move 0 180 0 jump
+move 0 -180 0 fall
 box 0 0 0 44 5 30
 push
 move -3 -5 0
@@ -90,7 +94,7 @@ pop
 pop
 pop
 push
-move 600 -50 0
+move 600 -150 0
 move -900 0 0 cactus
 cylinder cactus_green 0 0 0 10 150
 sphere cactus_green 0 150 0 10
@@ -137,4 +141,6 @@ pyramid thorn_gray 85 -15.5 0 2 5 2
 pyramid thorn_gray 65 -15.5 0 2 5 2
 vary cactus 0 19 0 1
 vary movey 0 19 0 1
+vary jump 10 19 0 1
+vary fall 0 9 0 1
 display
