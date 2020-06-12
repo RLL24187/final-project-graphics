@@ -114,7 +114,7 @@ def run(filename):
                50]
     light = [[0.5,
               0.75,
-              1],
+              2],
              [255,
               255,
               255]]
@@ -159,8 +159,8 @@ def run(filename):
             # add multiple lights
             if c == 'light':
                 lights[command['light']] = [
-                [args[3], args[4], args[5]],
-                [args[0], args[1], args[2]]]
+                [args[0], args[1], args[2]],
+                [args[3], args[4], args[5]]]
                 # print(lights)
             # move lights
             if c == 'move_light':
