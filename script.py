@@ -148,10 +148,10 @@ def run(filename):
             frame = frames[f]
             for knob in frame:
                 symbols[knob][1] = frame[knob]
-                print('\tknob: ' + knob + '\tvalue: ' + str(frame[knob]))
+                #print('\tknob: ' + knob + '\tvalue: ' + str(frame[knob]))
 
         for command in commands:
-            print(command)
+            #print(command)
             c = command['op']
             args = command['args']
             knob_value = 1
@@ -166,13 +166,13 @@ def run(filename):
             if c == 'move_light':
                 if command['knob']:
                     knob_value = symbols[command['knob']][1]
-                    print(knob_value)
+                    #print(knob_value)
                 moveLight = [args[0] * knob_value, args[1] * knob_value, args[2] * knob_value]
                 # print("moveLight")
                 # print(moveLight)
                 if command['symbols']:
                     for symbol in command['symbols']:
-                        print(symbol)
+                        #print(symbol)
                         # print(symbol[0])
                         lights[symbol][0] = [lights[symbol][0][0] + moveLight[0], lights[symbol][0][1] + moveLight[1], lights[symbol][0][2] + moveLight[2]]
                         symbols[symbol][1]['location'] = lights[symbol][0]

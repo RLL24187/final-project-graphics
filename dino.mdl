@@ -3,25 +3,30 @@ basename dino_20
 constants white 1 1 1 1 1 1 1 1 1
 constants dull_pink 0.3 1 0.2 0.3 0.4 0.2 0.3 0.6 0.2
 constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
+constants cactus_green 0 0 0 .8 1 .5 0 0 0
+constants thorn_gray .3 .3 .5 .3 .3 .5 .3 .3 .5
 light firstLight 1 1 1 255 0 0
 move_light -5 -5 2 movey
-light sun 0.75 2 1 0 255 0
-move_light -4 5 5 movey2
-light sun2 0.75 -2 1 0 0 255
-move_light 4 5 5 movey2
+light sun 0.75 1 1 0 255 0
+move_light -4 5 5 movey
+light sun2 0.75 -2 -1 0 255 255
+move_light 4 3 2 movey
 push
 move 250 250 0
 rotate x 25
 rotate y 35
 push
-move 0 120 -20
+move 0 170 -20
+box 0 0 0 5 -250 5
 sphere 0 0 0 50
 pop
 push
 move -200 -190 290
 box -120 0 0 850 80 590
 push
-move 80 100 -375
+move 80 280 -375
+move 0 180 0 jump
+move 0 -180 0 fall
 rotate z 28
 cone dull_pink 0 0 0 17 33
 push
@@ -30,7 +35,9 @@ sphere dull_yellow 0 0 0 5
 pop
 pop
 push
-move 80 100 -360
+move 80 280 -360
+move 0 180 0 jump
+move 0 -180 0 fall
 box 0 0 0 44 5 30
 push
 move -3 -5 0
@@ -76,11 +83,11 @@ push
 move 6 -4 0
 box 0 0 0 32 4 30
 push
-move 6 -4 0 
+move 6 -4 0
 box 0 0 0 5 17 30
 pop
 push
-move 22 -4 0 
+move 22 -4 0
 box 0 0 0 5 17 30
 pop
 pop
@@ -95,5 +102,54 @@ pop
 pop
 pop
 pop
+push
+move 600 -150 0
+move -900 0 0 cactus
+cylinder cactus_green 0 0 0 10 150
+sphere cactus_green 0 150 0 10
+push
+move 0 70 0
+rotate z 90
+cylinder cactus_green 0 0 0 10 30
+sphere cactus_green 0 30 0 10
+cylinder cactus_green -20 -30 0 10 30
+sphere cactus_green -20 -30 0 10
+pop
+cylinder cactus_green -30 70 0 10 60
+sphere cactus_green -30 130 0 10
+cylinder cactus_green 30 50 0 10 50
+sphere cactus_green 30 100 0 10
+pyramid thorn_gray 0 165 0 2 5 2
+pyramid thorn_gray -30 145 0 2 5 2
+pyramid thorn_gray 30 115 0 2 5 2
+push
+rotate x 90
+pyramid thorn_gray 0 15.5 -140 2 5 2
+pyramid thorn_gray 0 15.5 -120 2 5 2
+pyramid thorn_gray 0 15.5 -100 2 5 2
+pyramid thorn_gray 0 15.5 -80 2 5 2
+pyramid thorn_gray 0 15.5 -60 2 5 2
+pyramid thorn_gray 0 15.5 -40 2 5 2
+pyramid thorn_gray 20 15.5 -50 2 5 2
+pyramid thorn_gray 30 15.5 -70 2 5 2
+pyramid thorn_gray 30 15.5 -90 2 5 2
+pyramid thorn_gray -20 15.5 -70 2 5 2
+pyramid thorn_gray -30 15.5 -85 2 5 2
+pyramid thorn_gray -30 15.5 -105 2 5 2
+pyramid thorn_gray -30 15.5 -125 2 5 2
+pop
+rotate z 90
+pyramid thorn_gray 130 15.5 0 2 5 2
+pyramid thorn_gray 110 15.5 0 2 5 2
+pyramid thorn_gray 90 15.5 0 2 5 2
+pyramid thorn_gray 70 15.5 0 2 5 2
+pyramid thorn_gray 75 45.5 0 2 5 2
+pyramid thorn_gray 95 45.5 0 2 5 2
+pyramid thorn_gray 115 45.5 0 2 5 2
+pyramid thorn_gray 85 -15.5 0 2 5 2
+pyramid thorn_gray 65 -15.5 0 2 5 2
+vary cactus 0 19 0 1
 vary movey 0 19 0 1
-vary movey2 0 19 0 1
+vary jump 10 19 0 1
+vary fall 0 9 0 1
+display
